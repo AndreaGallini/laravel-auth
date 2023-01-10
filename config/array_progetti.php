@@ -2,6 +2,7 @@
 return [
     [
         'nome_progetto'=>'nome_progetto',
+        'slug'=>'',
         'descrizione'=>'un bel progetto',
         'collaboratori'=>'',
         'autore'=>'Andrea',

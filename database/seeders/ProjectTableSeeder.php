@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ProjectTableSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class ProjectTableSeeder extends Seeder
         foreach($array as $project){
             $newProject = new Project;
             $newProject->nome_progetto = $project['nome_progetto'];
+            $newProject->slug = Str::slug($newProject->nome_progetto, '-');
             $newProject->descrizione = $project['descrizione'];
             $newProject->collaboratori = $project['collaboratori'];
             $newProject->autore = $project['autore'];
