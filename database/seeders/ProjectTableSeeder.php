@@ -18,11 +18,11 @@ class ProjectTableSeeder extends Seeder
         $array = config('array_progetti');
         foreach($array as $project){
             $newProject = new Project;
-            $newProject->nome_progetto = $project->nome_progetto;
-            $newProject->descrizione = $project->descrizione;
-            $newProject->collaboratori = $project->collaboratori;
-            $newProject->autore = $project->autore;
-            $newProject->data_inizio_progetto = $project->data_inizio_progetto;
+            $newProject->nome_progetto = $project['nome_progetto'];
+            $newProject->descrizione = $project['descrizione'];
+            $newProject->collaboratori = $project['collaboratori'];
+            $newProject->autore = $project['autore'];
+            $newProject->data_inizio_progetto = $project['data_inizio_progetto'];
             $newProject->save();
 
         }
