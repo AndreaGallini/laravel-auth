@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3 my_container_welcome">
         <h1 class="my_portfolio_name">Andrea Gallini Portfolio</h1>
         <div class="main_welcome container-xl">
             @foreach ($projects as $project)
-                <div class="card" style="width: 18rem;">
+                <div class="card my_card_welcome" style="width: 18rem;">
                     <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ $project->nome_progetto }}</h5>

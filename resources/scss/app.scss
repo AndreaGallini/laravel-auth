@@ -11,7 +11,7 @@
     color: white;
     text-decoration: none;
     &:hover{
-        color: #0B5ED7;
+        color: white;
         font-weight: bold;
     }
 
@@ -20,9 +20,7 @@
     display: flex;
     justify-content: center;
 }
-.hover_btn:hover{
-    background-color: white;
-}
+
 .my_container_show{
     display: flex;
     justify-content: center;
@@ -31,4 +29,12 @@
 }
 .my_card{
     text-align: center;
+}
+.main_welcome{
+ display: flex;
+
+ flex-wrap: wrap;
+}
+.my_card_welcome{
+    margin: 3rem;
 }
