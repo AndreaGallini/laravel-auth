@@ -29,6 +29,7 @@ class StoreProjectRequest extends FormRequest
             'collaboratori' => 'nullable',
             'autore'=>'required',
             'data_inizio_progetto' => 'required',
+
         ];
     }
     public function messages(){

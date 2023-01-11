@@ -7,34 +7,45 @@
             @csrf
             <div class="form-group mt-4 mb-4">
                 <label for="nome_progetto">Nome Progetto</label>
-                <input type="text" class="form-control" id="nome_progetto" name="nome_progetto" placeholder="Nome progetto">
+                <input type="text" class="form-control @error('nome_progetto') is-invalid @enderror" id="nome_progetto"
+                    name="nome_progetto" placeholder="Nome progetto">
                 @error('nome_progetto')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
 
             </div>
             <div class="form-group mb-4">
                 <label for="descrizione">Descrizione del progetto</label>
-                <input type="text" class="form-control" id="descrizione" name="descrizione"
-                    placeholder="Scrizione progetto">
+                <input type="text" class="form-control @error('descrizione') is-invalid @enderror" id="descrizione"
+                    name="descrizione" placeholder="Scrizione progetto">
                 @error('descrizione')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-4">
                 <label for="collaboratori">Collaboratori</label>
-                <input type="text" class="form-control" id="collaboratori" name="collaboratori"
-                    placeholder=" Eventuali collaboratori">
+                <input type="text" class="form-control @error('collaboratori') is-invalid @enderror" id="collaboratori"
+                    name="collaboratori" placeholder=" Eventuali collaboratori">
                 <small>Lasciare vuoto nel caso di progetto singolo</small>
+                @error('collaboratori')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group mb-4">
                 <label for="autore">Autore del progetto</label>
-                <input type="text" class="form-control" id="autore" name="autore" placeholder="Autore">
+                <input type="text" class="form-control @error('autore') is-invalid @enderror" id="autore"
+                    name="autore" placeholder="Autore">
+                @error('autore')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group mb-4">
                 <label for="data_inizio_progetto">Data inizio progetto</label>
-                <input type="text" class="form-control" id="data_inizio_progetto" name="data_inizio_progetto"
-                    placeholder="Data di inizio progetto">
+                <input type="text" class="form-control @error('data_inizio_progetto') is-invalid @enderror"
+                    id="data_inizio_progetto" name="data_inizio_progetto" placeholder="Data di inizio progetto">
+                @error('data_inizio_progetto')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group mb-4">
                 <label for="img">Immagine</label>
