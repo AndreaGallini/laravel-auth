@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="container-md">
-        <h2>Modifica il tuo progetto</h2>
-        <form action="{{ route('admin.pro.update', $post->slug) }}" method="POST" enctype="multipart/form-data">
+        <h2>Aggiungi il tuo progetto</h2>
+        <form action="{{ route('adminprojects.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-group mt-4 mb-4">
                 <label for="nome_progetto">Nome Progetto</label>
                 <input type="text" class="form-control" id="nome_progetto" name="nome_progetto" aria-describedby="emailHelp"

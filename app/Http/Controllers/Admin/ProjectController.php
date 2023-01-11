@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -35,9 +37,13 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-
+        $data = $request->validated();
+        $slug = Project::createSlug($request->nome_progetto);
+        $data['slug'] = $slug;
+        $new_project = Project::create($data);
+        return redirect()->route('adminprojects.show' , $new_project->slug);
     }
 
     /**
@@ -69,9 +75,13 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+        $slug = Project::createSlug($request->nome_progetto);
+        $data['slug'] = $slug;
+        $project->update($data);
+        return redirect()->route('adminprojects.index')->with('message', "$project->nome_progetto aggiornato");
     }
 
     /**
@@ -80,8 +90,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('adminprojects.index')->with('message', "$project->nome_progetto cancellato");
     }
 }
