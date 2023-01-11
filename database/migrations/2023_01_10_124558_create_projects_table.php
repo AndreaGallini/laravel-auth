@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome_progetto');
             $table->string('slug');
+            $table->string('img')->nullable();
             $table->text('descrizione');
             $table->string('collaboratori')->nullable();
             $table->string('autore');

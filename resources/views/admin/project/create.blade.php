@@ -37,6 +37,11 @@
                 <input type="text" class="form-control" id="data_inizio_progetto" name="data_inizio_progetto"
                     placeholder="Data di inizio progetto">
             </div>
+            <div class="form-group mb-4">
+                <label for="img">Immagine</label>
+                <input type="file" class="form-control" id="img" name="img">
+            </div>
+
 
             <button type="submit" id="mySubmit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-primary">Reset</button>

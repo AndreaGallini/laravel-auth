@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -43,6 +44,10 @@ class ProjectController extends Controller
         $data = $request->validated();
         $slug = Project::createSlug($request->nome_progetto);
         $data['slug'] = $slug;
+                if($request->hasFile('img')){
+            $path = Storage::disk('public')->put('project_images', $request->img);
+            $data['img'] = $path;
+        }
         $new_project = Project::create($data);
         return redirect()->route('adminprojects.index');
     }
@@ -81,6 +86,14 @@ class ProjectController extends Controller
         $data = $request->validated();
         $slug = Project::createSlug($request->nome_progetto);
         $data['slug'] = $slug;
+        if ($request->hasFile('img')) {
+            if ($project->img) {
+                Storage::delete($project->img);
+            }
+        }
+            $path = Storage::disk('public')->put('project_images', $request->img);
+            $data['img'] = $path;
+
         $project->update($data);
         return redirect()->route('adminprojects.index')->with('message', "$project->nome_progetto aggiornato");
     }

@@ -17,18 +17,12 @@
             </div>
         </div>
         <div class="container">
-            <div class="button">
-                <button class=" hover_btn btn btn-primary mt-5"><a class="button_a"
-                        href="{{ route('adminprojects.index') }}">Vai alla
-                        lista
-                        dei miei
-                        progetti</a>
-                </button>
-            </div>
 
         </div>
-        <div class="projects_dashboard">
-            <p> Numero di progetti pubblicati :</p>
-        </div>
+
+    </div>
+    <div class="projects_dashboard">
+        <p> Numero di progetti pubblicati </p>
+    </div>
     </div>
 @endsection
