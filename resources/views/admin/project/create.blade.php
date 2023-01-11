@@ -7,8 +7,7 @@
             @csrf
             <div class="form-group mt-4 mb-4">
                 <label for="nome_progetto">Nome Progetto</label>
-                <input type="text" class="form-control" id="nome_progetto" name="nome_progetto" aria-describedby="emailHelp"
-                    placeholder="Nome progetto">
+                <input type="text" class="form-control" id="nome_progetto" name="nome_progetto" placeholder="Nome progetto">
                 @error('nome_progetto')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
