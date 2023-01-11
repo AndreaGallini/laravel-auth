@@ -27,7 +27,7 @@ class StoreProjectRequest extends FormRequest
             'nome_progetto' => 'required|unique:projects|min:5|max:100',
             'descrizione' =>'required|min:10|max:2000',
             'collaboratori' => 'nullable',
-            'autore'=>'required',
+            'autore'=>'required|min:5|max:40',
             'data_inizio_progetto' => 'required',
 
         ];
