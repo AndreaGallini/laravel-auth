@@ -63,7 +63,7 @@
 
 }
 .right{
-    flex-basis: 70%;
+    flex-basis: 90%;
 
 }
 .my_header{
@@ -71,4 +71,31 @@
     align-items: center;
     justify-content: space-between;
     height: 100px;
+}
+.my_row{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+
+}
+.right_row{
+    display: flex;
+    flex-basis: 40%;
+    justify-content: flex-end;
+
+
+
+}
+.left_row{
+flex-basis: 60%;
+display: flex;
+align-items: center;
+a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+}
+.my_container_index{
+    margin: 0 auto;
 }

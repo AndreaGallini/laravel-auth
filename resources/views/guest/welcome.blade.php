@@ -5,7 +5,11 @@
         <div class="main_welcome container-xl">
             @foreach ($projects as $project)
                 <div class="card my_card_welcome" style="width: 18rem;">
-                    <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                    <img class="card-img-top"
+                        src="@if ($project->img == null) https://via.placeholder.com/150
+                    @else
+                        {{ asset('storage/' . $project->img) }} @endif"
+                        alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ $project->nome_progetto }}</h5>
                         <p class="card-text">{{ $project->descrizione }}.</p>
