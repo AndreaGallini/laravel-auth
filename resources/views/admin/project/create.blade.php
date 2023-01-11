@@ -10,7 +10,7 @@
                 <input type="text" class="form-control" id="nome_progetto" name="nome_progetto" aria-describedby="emailHelp"
                     placeholder="Nome progetto">
                 @error('nome_progetto')
-                    <div class="innvalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
 
             </div>

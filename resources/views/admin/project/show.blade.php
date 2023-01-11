@@ -10,7 +10,7 @@
                 <p> {{ $project->autore }}</p>
                 @if ($project->collaboratori == '')
                 @else
-                    <p>{{ $project->collaboratori }}</p>
+                    <p> Collaboratori : {{ $project->collaboratori }}</p>
                 @endif
                 <p>{{ $project->descrizione }}</p>
                 <button class="btn btn-primary mb-4"><a class="button_a"
@@ -18,8 +18,8 @@
                         codice del progetto</a></button>
             </div>
         </div>
-        <button class="hover_btn btn btn-primary "><a class="button_a" href="{{ route('adminprojects.index') }}">Torna alla
-                lista dei
-                progetti</a></button>
+        <a class=" hover_btn btn btn-primarybutton_a" href="{{ route('adminprojects.index') }}">Torna alla
+            lista dei
+            progetti</a>
     </div>
 @endsection
