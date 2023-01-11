@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $slug = Project::createSlug($request->nome_progetto);
         $data['slug'] = $slug;
         $new_project = Project::create($data);
-        return redirect()->route('adminprojects.show' , $new_project->slug);
+        return redirect()->route('adminprojects.index' , $new_project->slug);
     }
 
     /**

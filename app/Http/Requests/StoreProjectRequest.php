@@ -33,10 +33,10 @@ class StoreProjectRequest extends FormRequest
     }
     public function messages(){
                 return [
-            'title.required' => 'Il titolo è obbligatorio.',
-            'title.min' => 'Il titolo deve essere lungo almeno :min caratteri.',
-            'title.max' => 'Il titolo non può superare i :max caratteri.',
-            'title.unique:posts' => 'Il titolo esiste già'
+            'nome_progetto.required' => 'Il titolo è obbligatorio.',
+            'nome_progetto.min' => 'Il titolo deve essere lungo almeno :min caratteri.',
+            'nome_progetto.max' => 'Il titolo non può superare i :max caratteri.',
+            'titnome_progettole.unique:projects' => 'Il titolo esiste già'
         ];
     }
 }
