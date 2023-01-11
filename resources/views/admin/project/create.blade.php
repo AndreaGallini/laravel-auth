@@ -18,6 +18,9 @@
                 <label for="descrizione">Descrizione del progetto</label>
                 <input type="text" class="form-control" id="descrizione" name="descrizione"
                     placeholder="Scrizione progetto">
+                @error('descrizione')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group mb-4">
                 <label for="collaboratori">Collaboratori</label>
@@ -35,7 +38,7 @@
                     placeholder="Data di inizio progetto">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" id="mySubmit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-primary">Reset</button>
         </form>
     </div>

@@ -38,3 +38,37 @@
 .my_card_welcome{
     margin: 3rem;
 }
+.my_container_admin{
+    display: flex;
+    height: calc(100vh - 100px);
+}
+.left_lateral{
+    flex-basis: 10%;
+    background-color: black;
+    ul{
+        list-style: none;
+        li{
+            list-style: none;
+            margin-top: 2rem;
+            a{
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                font-size: 1.2rem;
+
+            }
+        }
+    }
+
+
+}
+.right{
+    flex-basis: 70%;
+
+}
+.my_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}

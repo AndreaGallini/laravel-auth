@@ -24,7 +24,10 @@
                 </section>
             </div>
         @endforeach
-
+        <form action="{{ route('adminprojects.store') }}" method="POST">
+            @csrf
+            <button type="submit">vai</button>
+        </form>
 
     </div>
 @endsection

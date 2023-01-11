@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('adminContent')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -26,6 +26,9 @@
                 </button>
             </div>
 
+        </div>
+        <div class="projects_dashboard">
+            <p> Numero di progetti pubblicati :</p>
         </div>
     </div>
 @endsection
