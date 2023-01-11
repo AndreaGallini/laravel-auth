@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     public function index(){
-        $last_project = DB::select('SELECT * FROM projects ORDER BY id DESC LIMIT 1;');
+        $last_project = DB::table('projects')
+        ->count();
+
+
         return view('admin.dashboard', compact('last_project'));
     }
 }

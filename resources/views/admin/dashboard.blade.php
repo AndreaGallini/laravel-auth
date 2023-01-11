@@ -21,8 +21,10 @@
         </div>
 
     </div>
-    <div class="projects_dashboard">
-        <p> Numero di progetti pubblicati </p>
+    <div class="projects_dashboard mx-5 mt-3">
+        <h2>Benvenuto {{ Auth::user()->name }}</h2>
+        <p> Numero di progetti pubblicati : {{ $last_project }}</p>
+        <a class="btn btn-primary mb-5 mt-5" href=" {{ route('adminprojects.create') }}">Crea un nuovo post</a>
     </div>
     </div>
 @endsection
