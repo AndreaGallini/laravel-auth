@@ -13,7 +13,7 @@
                     <p> Collaboratori : {{ $project->collaboratori }}</p>
                 @endif
                 <p>{{ $project->descrizione }}</p>
-                <img class="mb-3
+                <img class="mb-3 show_img
                 " src="{{ asset('storage/' . $project->img) }}">
                 <button class="btn btn-primary mb-4"><a class="button_a"
                         href="https://github.com/AndreaGallini/{{ $project->slug }}" target="_blank">vai al
