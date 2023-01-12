@@ -110,6 +110,9 @@ a{
 }
 .my_container_index{
     margin: 0 auto;
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
+
 }
 .show_img{
     width: 300px;
@@ -160,4 +163,7 @@ margin-right: 5rem;
         p {
                 font-size: 18px;
             }
+}
+.my_container_admin{
+    height: calc(100vh - 100px);
 }
