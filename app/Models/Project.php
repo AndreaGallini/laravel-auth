@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 use Illuminate\Support\Str;
 
 class Project extends Model
@@ -14,8 +15,8 @@ class Project extends Model
     public static function createSlug($nome_progetto){
         return Str::slug($nome_progetto, '-');
     }
-    public function category(): BelongsTo
+    public function category():BelongsTo
     {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }
