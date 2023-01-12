@@ -20,6 +20,7 @@
                         href="https://github.com/AndreaGallini/{{ $project->slug }}" target="_blank">vai al
                         codice del progetto</a></button>
             </div>
+            <a href="{{ route('adminprojects.edit', $project->slug) }}">edit</a>
         </div>
         <a class=" hover_btn btn btn-primarybutton_a" href="{{ route('adminprojects.index') }}">Torna alla
             lista dei

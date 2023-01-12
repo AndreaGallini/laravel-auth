@@ -13,6 +13,7 @@
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
             </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-primary">Reset</button>
         </form>
