@@ -49,7 +49,8 @@ class ProjectController extends Controller
             $data['img'] = $path;
         }
         $new_project = Project::create($data);
-        return redirect()->route('adminprojects.index');
+      //  return redirect()->route('adminprojects.index');
+        return redirect()->route('adminprojects.show', $new_project->slug);
     }
 
     /**
