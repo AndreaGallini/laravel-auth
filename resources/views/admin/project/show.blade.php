@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.admin')
+@section('adminContent')
     <div class="container-xl  my_container_show vh-100">
         <div class="my_card ">
             <div class="my_title">
