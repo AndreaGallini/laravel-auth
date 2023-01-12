@@ -26,6 +26,7 @@
     justify-content: center;
     flex-direction: column;
     width: 50%;
+    height: calc(100vh - 100px);
 }
 .my_card{
     text-align: center;
@@ -74,27 +75,38 @@
 }
 .my_row{
     display: flex;
-    border: 1px solid black;
+ //   border: 1px solid black;
     justify-content: space-between;
 
 }
 .right_row{
     display: flex;
-    flex-basis: 40%;
+    flex-basis: 33.3%;
     justify-content: flex-end;
 
 
 
 }
 .left_row{
-flex-basis: 60%;
+flex-basis: 33.3%;
 display: flex;
 align-items: center;
+justify-self: flex-end;
 a{
     text-decoration: none;
     color: black;
     text-transform: uppercase;
 }
+}
+.center_row{
+    flex-basis: 33.3%;
+    display: flex;
+    justify-content: center;
+}
+.left_row_header{
+    display: flex;
+    flex-basis: 33.3%;
+    justify-content: flex-end;
 }
 .my_container_index{
     margin: 0 auto;
@@ -103,4 +115,49 @@ a{
     width: 300px;
     display: block;
     margin: 0 auto;
+}
+.col_head{
+    height: 50px;
+    font-size: 25px;
+}
+.col_body{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+.my_col{
+    box-shadow: -3px 0px 14px 5px rgba(0, 0, 0, 0.5);
+}
+.edit{
+    margin-right: 1rem;
+}
+.head_show{
+    display: flex;
+    p{
+        font-size: 20px;
+    }
+}
+//show
+.head_show_left{
+flex-basis: 33.3%;
+justify-self: flex-start;
+margin-left: 5rem;
+}
+.head_show_center {
+flex-basis: 33.3%;
+justify-self: center;
+text-align: center;
+}
+.head_show_right {
+flex-basis: 33.3%;
+display: flex;
+justify-content: flex-end;
+margin-right: 5rem;
+}
+.body_show{
+        p {
+                font-size: 18px;
+            }
 }
