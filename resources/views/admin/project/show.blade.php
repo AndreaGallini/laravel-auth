@@ -4,6 +4,7 @@
         <div class="my_card ">
             <div class="my_title">
                 <h2>{{ $project->nome_progetto }}</h2>
+                <p>{{ $project->category->name }}</p>
             </div>
             <div class="my_desc">
                 <p> Data inizio progetto : {{ $project->data_inizio_progetto }}</p>

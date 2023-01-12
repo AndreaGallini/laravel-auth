@@ -29,6 +29,7 @@ class StoreProjectRequest extends FormRequest
             'collaboratori' => 'nullable',
             'autore'=>'required|min:5|max:40',
             'data_inizio_progetto' => 'required',
+            'category_id' => 'nullable|exists:categories,id'
 
         ];
     }

@@ -51,6 +51,19 @@
                 <label for="img">Immagine</label>
                 <input type="file" class="form-control" id="img" name="img">
             </div>
+            <div class="form-group mb-4">
+                <label for="category_id">Seleziona la categoria</label>
+                <select name="category_id" id="category_id" @error('category_id') is-invalid @enderror>
+                    <option value="">Seleziona la categoria</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}"{{ $category->id == old('category_id') ? 'selected' : '' }}>
+                            {{ $category->name }}</option>
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+            </div>
 
 
             <button type="submit" id="mySubmit" class="btn btn-primary">Submit</button>
