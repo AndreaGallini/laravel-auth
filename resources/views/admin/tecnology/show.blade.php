@@ -16,13 +16,7 @@
             </section>
             <section class="head_show_right">
 
-                <p> Tecnologie Utilizzate :
-                    @if ($project->tecnologies && count($project->tecnologies) > 0)
-                        @foreach ($project->tecnologies as $tecnology)
-                            <span>{{ $tecnology->name }}</span>
-                        @endforeach
-                    @endif
-                </p>
+                <p> Visibilità progetto : {{ $project->collaboratori }}</p>
 
             </section>
         </div>

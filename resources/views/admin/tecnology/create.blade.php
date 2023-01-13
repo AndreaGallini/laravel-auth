@@ -64,18 +64,6 @@
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="form-group mb-4">
-                <label for="tecnologies" class="form-label">Tecnologie usate : </label>
-                <select multiple class="form-select" name="tecnologies[]" id="tecnologies">
-                    <option value="">Seleziona le tecnologie usate</option>
-                    @forelse ($tecnologies as $tecnology)
-                        <option value="{{ $tecnology->id }}">{{ $tecnology->name }}</option>
-                    @empty
-                        <option value="">Nessuna tecnologia</option>
-                    @endforelse
-
-                </select>
-            </div>
 
 
             <button type="submit" id="mySubmit" class="btn btn-primary">Submit</button>

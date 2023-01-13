@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Tecnology;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,8 +31,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $tecnologies = Tecnology::all();
         $categories = Category::all();
-         return view('admin.project.create' ,compact('categories'));
+         return view('admin.project.create' ,compact('categories','tecnologies'));
     }
 
     /**
@@ -51,6 +53,9 @@ class ProjectController extends Controller
             $data['img'] = $path;
         }
         $new_project = Project::create($data);
+            if($request->has('tecnologies')){
+            $new_project->tecnologies()->attach($request->tecnologies);
+        }
       //  return redirect()->route('adminprojects.index');
         return redirect()->route('adminprojects.show', $new_project->slug);
     }
@@ -75,7 +80,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $categories = Category::all();
-         return view('admin.project.edit' , compact('project','categories'));
+        $tecnologies = Tecnology::all();
+         return view('admin.project.edit' , compact('project','categories','tecnologies'));
     }
 
     /**
@@ -100,6 +106,9 @@ class ProjectController extends Controller
 
 
         $project->update($data);
+            if($request->has('tecnologies')){
+            $project->tags()->sync($request->tecnologies);
+        }
         return redirect()->route('adminprojects.show', $project->slug)->with('message', "$project->nome_progetto aggiornato");
     }
 
