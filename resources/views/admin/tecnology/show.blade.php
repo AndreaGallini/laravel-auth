@@ -1,42 +1,35 @@
 @extends('layouts.admin')
 @section('adminContent')
-    <div class="container-fluid">
-        <h1 class="text-center text-capitalize">{{ $project->nome_progetto }}</h1>
-        <div class="head_show">
-            <section class="head_show_left">
-                @if ($project->category)
-                    <p>Categoria : {{ $project->category->name }}</p>
-                @else
-                    <p>Categoria non attribuita</p>
-                @endif
+    <div class="container mt-5 mb-5 flex my_container_index">
+        <div class="my_row">
+            <div class="left_row">
+                <h3>Tecnologia</h3>
+            </div>
 
-            </section>
-            <section class="head_show_center">
-                <p>Autore : {{ $project->autore }}</p>
-            </section>
-            <section class="head_show_right">
-
-                <p> Visibilità progetto : {{ $project->collaboratori }}</p>
-
-            </section>
+            <div class="left_row_header">
+                <h3>Modifica</h3>
+            </div>
         </div>
-        <div class="body_show text-center">
-            @if ($project->img)
-                <img class="mb-3 mt-5 show_img
-                " src="{{ asset('storage/' . $project->img) }}">
-            @else
-                <img class="mb-3 mt-5 show_img"src="{{ asset('/img/not_found_img.jpeg') }}
-" alt="">
-            @endif
-            <p>{{ $project->descrizione }}</p>
-            <p> Data inizio progetto : {{ $project->data_inizio_progetto }}</p>
-        </div>
-        <div class="footer_show text-center">
-            <a class="btn btn-primary mx-3" href="https://github.com/AndreaGallini/{{ $project->slug }}" target="_blank">
-                Visualizza codice sorgente</a>
-            <a class="btn btn-primary mx-3" href="{{ route('adminprojects.edit', $project->slug) }}" target="_blank">
-                Modifica il progetto</a>
+        @foreach ($tecnology->projects as $project)
+            <div class="my_row mb-2 mt-2">
+                <section class="left_row"> <a
+                        href="{{ route('adminprojects.show', $project->slug) }}">{{ $project->nome_progetto }}</a>
+                </section>
 
-        </div>
+                <section class="right_row">
+                    <section class="edit"><a class="btn btn-primary"
+                            href="{{ route('adminprojects.edit', $project->slug) }}"><i
+                                class="fa-regular fa-pen-to-square"></i></a></section>
+                    <section class="delete">
+                        <form action="{{ route('adminprojects.destroy', $project->slug) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </section>
+                </section>
+            </div>
+        @endforeach
+
     </div>
 @endsection

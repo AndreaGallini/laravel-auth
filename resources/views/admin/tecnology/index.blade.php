@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('adminContent')
     <div class="container flex my_container_index">
-        <a class="btn btn-primary mb-5" href=" {{ route('admintecnologies.create') }}">Crea un nuovo post</a>
+        <a class="btn btn-primary mb-5" href=" {{ route('admintecnologies.create') }}">Inserisci una nuova tecnologia</a>
         @if (session()->has('message'))
             <div class="alert alert-success mb-3 mt-3">
                 {{ session()->get('message') }}
@@ -31,12 +31,12 @@
                         <form action="{{ route('admintecnologies.destroy', $tecnology->slug) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                        </form>
+                            <button type="submit" class="  btn btn-danger" "><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                        </section>
                     </section>
-                </section>
-            </div>
-        @endforeach
+                </div>
+     @endforeach
 
-    </div>
-@endsection
+            </div>
+        @endsection

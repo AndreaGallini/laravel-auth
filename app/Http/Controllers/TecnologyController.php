@@ -26,7 +26,7 @@ class TecnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tecnology.create');
     }
 
     /**
@@ -37,7 +37,11 @@ class TecnologyController extends Controller
      */
     public function store(StoreTecnologyRequest $request)
     {
-        //
+        $data = $request->validated();
+        $slug = Tecnology::createSlug($request->name);
+        $data['slug'] = $slug;
+        $new_project = Tecnology::create($data);
+       return redirect()->route('admintecnologies.index');
     }
 
     /**
@@ -48,7 +52,7 @@ class TecnologyController extends Controller
      */
     public function show(Tecnology $tecnology)
     {
-        //
+           return view('admin.tecnology.show', compact('tecnology'));
     }
 
     /**
@@ -59,7 +63,7 @@ class TecnologyController extends Controller
      */
     public function edit(Tecnology $tecnology)
     {
-        //
+        return view('admin.tecnology.edit', compact('tecnology'));
     }
 
     /**
@@ -71,7 +75,11 @@ class TecnologyController extends Controller
      */
     public function update(UpdateTecnologyRequest $request, Tecnology $tecnology)
     {
-        //
+        $data = $request->validated();
+        $slug = Tecnology::createSlug($request->name);
+        $data['slug'] = $slug;
+        $tecnology->update($data);
+        return redirect()->route('admintecnologies.index')->with('message', " Tecnologia $tecnology->name aggiornata");
     }
 
     /**
@@ -82,6 +90,7 @@ class TecnologyController extends Controller
      */
     public function destroy(Tecnology $tecnology)
     {
-        //
+        $tecnology->delete();
+        return redirect()->route('admintecnologies.index')->with('message', " Tecnologia $tecnology->name eliminata con successo");
     }
 }
