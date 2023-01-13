@@ -18,13 +18,6 @@
                 </div>
             @endforeach
         </div>
-        <button onclick="getUserAccount()"> sasasa</button>
-        <script>
-            function getUserAccount() {
-                return axios.get('https://api.github.com/users/FrancescolaPiana/repos').then(function(response) {
-                    console.log(response);
-                });
-            }
-        </script>
+
     </div>
 @endsection
