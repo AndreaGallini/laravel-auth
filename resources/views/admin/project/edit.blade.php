@@ -73,7 +73,7 @@
                 <select multiple class="form-select" name="tecnologies[]" id="tecnologies">
                     <option value="">Tecnologie Utilizzate : </option>
                     @forelse ($tecnologies as $tecnology)
-                        @if ($errors->any())
+                        @if (old('tecnologies[]') != null)
                             <option value="{{ $tecnology->id }}"
                                 {{ in_array($tecnology->id, old('tecnologies[]')) ? 'selected' : '' }}>
                                 {{ $tecnology->name }}</option>

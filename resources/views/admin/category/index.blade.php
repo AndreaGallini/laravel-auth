@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('adminContent')
     <div class="container mt-5 mb-5 flex my_container_index">
-        <a class="btn btn-primary mb-5" href=" {{ route('admincategories.create') }}">Crea una nuova categoria</a>
+        <a class="btn my_btn_dashboard mb-5 mt-5" href=" {{ route('admincategories.create') }}">Crea una nuova categoria</a>
         @if (session()->has('message'))
             <div class="alert alert-success mb-3 mt-3">
                 {{ session()->get('message') }}

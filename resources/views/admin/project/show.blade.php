@@ -22,6 +22,8 @@
                             <span><a
                                     href="{{ route('admintecnologies.show', $tecnology->slug) }}">{{ $tecnology->name }}</a></span>
                         @endforeach
+                    @else
+                        <span>0</span>
                     @endif
                 </p>
 
