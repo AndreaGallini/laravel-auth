@@ -3,7 +3,7 @@
     <div class="container mt-5 mb-5 flex my_container_index">
         <div class="my_row">
             <div class="left_row">
-                <h3>Tecnologia</h3>
+                <h3>{{ $tecnology->name }}</h3>
             </div>
 
             <div class="left_row_header">
@@ -12,7 +12,7 @@
         </div>
         @foreach ($tecnology->projects as $project)
             <div class="my_row mb-2 mt-2">
-                <section class="left_row"> <a
+                <section class="left_row"> <a class=""
                         href="{{ route('adminprojects.show', $project->slug) }}">{{ $project->nome_progetto }}</a>
                 </section>
 

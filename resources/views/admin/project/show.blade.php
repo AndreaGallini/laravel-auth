@@ -19,7 +19,8 @@
                 <p> Tecnologie Utilizzate :
                     @if ($project->tecnologies && count($project->tecnologies) > 0)
                         @foreach ($project->tecnologies as $tecnology)
-                            <span>{{ $tecnology->name }}</span>
+                            <span><a
+                                    href="{{ route('admintecnologies.show', $tecnology->slug) }}">{{ $tecnology->name }}</a></span>
                         @endforeach
                     @endif
                 </p>
