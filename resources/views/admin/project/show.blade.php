@@ -1,27 +1,42 @@
-@extends('layouts.app')
-@section('content')
-    <div class="container-xl  my_container_show vh-100">
-        <div class="my_card ">
-            <div class="my_title">
-                <h2>{{ $project->nome_progetto }}</h2>
-            </div>
-            <div class="my_desc">
-                <p> Data inizio progetto : {{ $project->data_inizio_progetto }}</p>
-                <p> {{ $project->autore }}</p>
-                @if ($project->collaboratori == '')
+@extends('layouts.admin')
+@section('adminContent')
+    <div class="container-fluid">
+        <h1 class="text-center text-capitalize">{{ $project->nome_progetto }}</h1>
+        <div class="head_show">
+            <section class="head_show_left">
+                @if ($project->category)
+                    <p>Categoria : {{ $project->category->name }}</p>
                 @else
-                    <p> Collaboratori : {{ $project->collaboratori }}</p>
+                    <p>Categoria non attribuita</p>
                 @endif
-                <p>{{ $project->descrizione }}</p>
-                <img class="mb-3 show_img
-                " src="{{ asset('storage/' . $project->img) }}">
-                <button class="btn btn-primary mb-4"><a class="button_a"
-                        href="https://github.com/AndreaGallini/{{ $project->slug }}" target="_blank">vai al
-                        codice del progetto</a></button>
-            </div>
+
+            </section>
+            <section class="head_show_center">
+                <p>Autore : {{ $project->autore }}</p>
+            </section>
+            <section class="head_show_right">
+
+                <p> Visibilità progetto : {{ $project->collaboratori }}</p>
+
+            </section>
         </div>
-        <a class=" hover_btn btn btn-primarybutton_a" href="{{ route('adminprojects.index') }}">Torna alla
-            lista dei
-            progetti</a>
+        <div class="body_show text-center">
+            @if ($project->img)
+                <img class="mb-3 mt-5 show_img
+                " src="{{ asset('storage/' . $project->img) }}">
+            @else
+                <img class="mb-3 mt-5 show_img"src="{{ asset('/img/not_found_img.jpeg') }}
+" alt="">
+            @endif
+            <p>{{ $project->descrizione }}</p>
+            <p> Data inizio progetto : {{ $project->data_inizio_progetto }}</p>
+        </div>
+        <div class="footer_show text-center">
+            <a class="btn btn-primary mx-3" href="https://github.com/AndreaGallini/{{ $project->slug }}" target="_blank">
+                Visualizza codice sorgente</a>
+            <a class="btn btn-primary mx-3" href="{{ route('adminprojects.edit', $project->slug) }}" target="_blank">
+                Modifica il progetto</a>
+
+        </div>
     </div>
 @endsection

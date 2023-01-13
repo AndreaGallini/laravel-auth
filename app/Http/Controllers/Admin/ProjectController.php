@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-         return view('admin.project.create');
+        $categories = Category::all();
+         return view('admin.project.create' ,compact('categories'));
     }
 
     /**
@@ -72,7 +74,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-         return view('admin.project.edit' , compact('project'));
+        $categories = Category::all();
+         return view('admin.project.edit' , compact('project','categories'));
     }
 
     /**
@@ -91,12 +94,13 @@ class ProjectController extends Controller
             if ($project->img) {
                 Storage::delete($project->img);
             }
-        }
-            $path = Storage::disk('public')->put('project_images', $request->img);
+                        $path = Storage::disk('public')->put('project_images', $request->img);
             $data['img'] = $path;
+        }
+
 
         $project->update($data);
-        return redirect()->route('adminprojects.index')->with('message', "$project->nome_progetto aggiornato");
+        return redirect()->route('adminprojects.show', $project->slug)->with('message', "$project->nome_progetto aggiornato");
     }
 
     /**
