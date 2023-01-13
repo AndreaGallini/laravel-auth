@@ -107,7 +107,7 @@ class ProjectController extends Controller
 
         $project->update($data);
             if($request->has('tecnologies')){
-            $project->tags()->sync($request->tecnologies);
+            $project->tecnologies()->sync($request->tecnologies);
         }
         return redirect()->route('adminprojects.show', $project->slug)->with('message', "$project->nome_progetto aggiornato");
     }

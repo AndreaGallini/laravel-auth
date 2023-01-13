@@ -68,6 +68,26 @@
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="form-group mb-4">
+                <label for="tecnologies" class="form-label">Tecnologie usate : </label>
+                <select multiple class="form-select" name="tecnologies[]" id="tecnologies">
+                    <option value="">Tecnologie Utilizzate : </option>
+                    @forelse ($tecnologies as $tecnology)
+                        @if ($errors->any())
+                            <option value="{{ $tecnology->id }}"
+                                {{ in_array($tecnology->id, old('tecnologies[]')) ? 'selected' : '' }}>
+                                {{ $tecnology->name }}</option>
+                        @else
+                            <option value="{{ $tecnology->id }}"
+                                {{ $project->tecnologies->contains($tecnology->id) ? 'selected' : '' }}>
+                                {{ $tecnology->name }}</option>
+                        @endif
+                    @empty
+                        <option value="">No tecnology</option>
+                    @endforelse
+
+                </select>
+            </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-primary">Reset</button>
